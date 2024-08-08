@@ -2,7 +2,7 @@
     {
         "title": "Violeta",
         "id": 1,
-        "category": "Literatura",
+        "category": "literatura",
         "editor":"Porto Editora",
         "price": 12052,
         "detail": "La épica y emocionante historia de una mujer cuya vida abarca los momentos históricos más relevantes del siglo XX. Desde 1920 -con la llamada «gripe española»- hasta la pandemia de 2020, la vida de Violeta será mucho más que la historia de un siglo",
@@ -11,7 +11,7 @@
     {
         "title": "La Paciente Silenciosa",
         "id": 2,
-        "category": "Literatura",
+        "category": "literatura",
         "editor":"DEBOLSILLO",
         "price": 10505,
         "detail": "La paciente silenciosa es una novela de suspense psicológico de 2019 escrita por el autor británico-chipriota Alex Michaelides. La exitosa novela debut fue publicada por Celadon Books el 5 de febrero de 2019. ",
@@ -20,7 +20,7 @@
     {
         "title": "Cobalto Rojo",
         "id": 3,
-        "category": "Historia",
+        "category": "historia",
         "editor":"CAPITAN SWING S.L",
         "price": 9730,
         "detail": "Cobalto rojo es la primera y desgarradora revelación de la inmensa carga que la minería del cobalto supone para la población y el medio ambiente de la República Democrática del Congo, contada a través de los testimonios de los propios congoleños. El activista e investigador Siddharth Kara ha documentado los testimonios de las personas que viven, trabajan y mueren por el cobalto.",
@@ -29,7 +29,7 @@
     {
         "title": "Un Triton En La Mochila",
         "id": 4,
-        "category": "Infantil",
+        "category": "infantil",
         "editor":"Santillana Educacion, S.L.",
         "price": 11074,
         "detail": "Marcos viaja a Madrid con sus padres y su amigo Teo para asistir a la fiesta de la revista Planeta Tierra. Escondido en un bote de cristal va Ptolomeo, Marcos tiene grandes planes para él y no cesará hasta que todo el mundo conozca la historia de su alucinante mascota.",
@@ -38,7 +38,7 @@
     {
         "title": "El Poder Del Metabolismo",
         "id": 5,
-        "category": "Medicina",
+        "category": "medicina",
         "editor":"SOLUCIONES SALUDABLES, S.L.",
         "price": 10620,
         "detail": "Los descubrimientos de Frank Suárez sobre el metabolismo, sobre la dieta correcta y sobre el estilo de vida que uniformemente han producido mejorías de salud para personas con sobrepeso, obesidad, hipotiroidismo o diabetes, se explican en el libro.",
