@@ -15,6 +15,8 @@ export const NavBar = () => (
         <Nav.Link as={NavLink} to="/">HOME</Nav.Link>
         <Nav.Link as={NavLink} to="/category/literatura">Literatura</Nav.Link>
         <Nav.Link as={NavLink} to="/category/historia">Historia</Nav.Link>
+        <Nav.Link as={NavLink} to="/category/infantil">Infantil</Nav.Link>
+        <Nav.Link as={NavLink} to="/category/medicina">Medicina</Nav.Link>
       </Nav>
       <CartWidget />
     </Container>

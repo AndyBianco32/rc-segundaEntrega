@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-
+import { getFirestore, getDocs, where, query, collection, } from 'firebase/firestore';
 import Container from 'react-bootstrap/Container';
-import data from "../data/products.json";
+// import data from "../data/products.json";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
@@ -13,18 +13,25 @@ export const ItemListContainer = () => {
  const {id } = useParams();
 
  useEffect (() => {
-    new Promise ((resolve, reject) => {
-        setTimeout(() => resolve(data), 2000) ;
-    })
-    .then((response) => {
-    if (!id) {
-        setItems(response);
-    } else{
-        const filtro = response.filter((i) => i.category === id);
-        setItems(filtro);
-    }
+    const db = getFirestore();
+
+    const refCollection = !id
+    ? collection( db, "items")
+    : query(collection(db, "items"), where("category", "==", id))
+
+    getDocs(refCollection)
+    .then((snapshot) => {
+      
+      setItems(snapshot.docs.map((doc) => {
+          return { id: doc.id, ...doc.data()};
+        }))
+     
     });
+
+    
 }, [id]);
+
+console.log(items)
 
     return (
         <Container className="mt-3 " >
