@@ -8,6 +8,7 @@ const initialValues = {
     telefono: "",
     email: "",
     nombre: "",
+    mensaje: "",
 }
 
 export const Cart = () => {
@@ -70,6 +71,10 @@ const handleOrder = () =>{
         <div>
             <label>Telefono</label>
             <input value={buyer.telefono} onChange={handleChange} name="telefono"/>
+        </div>
+        <div>
+            <label>Mensaje</label>
+            <input value={buyer.mensaje} onChange={handleChange} name="mensaje"/>
         </div>
         <button type="button" onClick={handleOrder}>Comprar</button>
     </form>

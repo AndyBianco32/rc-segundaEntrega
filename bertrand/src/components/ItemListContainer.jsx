@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getFirestore, getDocs, where, query, collection, } from 'firebase/firestore';
+import './ItemListContainer.css';
 import Container from 'react-bootstrap/Container';
 // import data from "../data/products.json";
 import Card from 'react-bootstrap/Card';
@@ -36,9 +37,10 @@ console.log(items)
     return (
         <Container className="mt-3 " >
         <h1>Libros</h1>
-        <Container className="mt-4 d-flex" >
+        <Container className="mt-4 d-flex contPrincipal">
+        
         {items.map((i) => (
-                <Card key={i.id} style={{ width: '25rem' }}>
+                <Card key={i.id} className="cardPrincipal">
                   <Card.Img variant="top" src={i.img} />
                   <Card.Body>
                     <Card.Title>{i.title}</Card.Title>
@@ -54,7 +56,9 @@ console.log(items)
                     <Link to={`/item/${i.id}`}>Ver Detalle</Link>
                   </Card.Body>
                 </Card>
+        
         ))}
+     
             </Container>
         </Container>
 )

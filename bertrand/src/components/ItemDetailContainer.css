@@ -1,0 +1,8 @@
+.detailContainer{
+    display: flex;
+}
+.detailContainer1,
+.detailContainer2{
+    margin-left: 50px;
+ 
+ }
