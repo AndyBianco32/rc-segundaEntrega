@@ -1,3 +1,11 @@
+body{
+    background-image: url(../assets/back-school-background-with-school-supplies-copy-space.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+}
+
 .contPrincipal {
     display: flex;
     flex-direction: row;
@@ -12,4 +20,9 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-content: space-around;
+}
+
+.card:hover{
+    transition: 1s;
+    box-shadow: 25px 15px 25px rgba(0, 0, 0, 0.4);
 }

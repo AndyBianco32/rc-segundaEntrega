@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { getFirestore, collection, addDoc} from "firebase/firestore";
 
+import './Cart.css';
 import { ItemContext } from "../contexts/ItemsContexts";
-
 
 const initialValues = {
     telefono: "",
@@ -46,20 +46,27 @@ const handleOrder = () =>{
 
     return (
     <>
-    <button onClick={reset}>Reset</button>
-    {items?.map((i) => (<div key= {i.id}>
-        <div>{i.title}</div>
+    <button className="reset" onClick={reset}>Vaciar Carrito</button>
+    <div className="cartsCar">
+    {items?.map((i) => (
+        
+        <div key= {i.id} className="cartCarrito">
+        <h3>{i.title}</h3>
         <img src={i.img} width={150}></img>
-        <h2>Cantidad: {i.quantity}</h2>
-        <h3>Precio: {i.price}</h3>
+        <p>Cantidad: {i.quantity}</p>
+        <p>Precio: $ {i.price}</p>
         {/* <span onClick={() => removeItem(i.id)}>Eliminar</span> */}
-    </div>))}
+        </div> 
+
+        ))
+    }
+    </div>
     
-    <h1>Total: {total}</h1>
+    <div className="totalImporte"><h2>Total de la Compra: $ {total}</h2> </div>
 
     <hr/>
     {!!items.length &&
-    <form>
+    <form className="formulario">
         <div>
             <label>Nombre</label>
             <input value={buyer.nombre} onChange={handleChange} name="nombre"/>

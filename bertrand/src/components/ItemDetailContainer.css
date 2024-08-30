@@ -1,7 +1,17 @@
 .detailContainer{
     display: flex;
 }
-.detailContainer1,
+.detailContainer1{
+    text-align: center;
+    margin-left: 50px;
+    width: 70%;
+    background-color: white;
+    padding: 25px;
+}
+/* .detailContainerInside{
+    width: 100%;
+    background-color: white;
+} */
 .detailContainer2{
     margin-left: 50px;
  

@@ -5,18 +5,19 @@ import { NavLink } from "react-router-dom";
 
 
 import { CartWidget } from "./CartWidget"
+import { onBackgroundMessage } from 'firebase/messaging/sw';
 
 export const NavBar = () => (
 
-  <Navbar bg="primary" data-bs-theme="dark">
+  <Navbar bg="dark" data-bs-theme="dark" >
     <Container>
       <Nav className="me-auto">
         {/* <Navbar.Brand href="#home">BERTRAND</Navbar.Brand> */}
         <Nav.Link as={NavLink} to="/">HOME</Nav.Link>
-        <Nav.Link as={NavLink} to="/category/literatura">Literatura</Nav.Link>
-        <Nav.Link as={NavLink} to="/category/historia">Historia</Nav.Link>
-        <Nav.Link as={NavLink} to="/category/infantil">Infantil</Nav.Link>
-        <Nav.Link as={NavLink} to="/category/medicina">Medicina</Nav.Link>
+        <Nav.Link as={NavLink} to="/category/Literatura">Literatura</Nav.Link>
+        <Nav.Link as={NavLink} to="/category/Historia">Historia</Nav.Link>
+        <Nav.Link as={NavLink} to="/category/Infantil">Infantil</Nav.Link>
+        <Nav.Link as={NavLink} to="/category/Medicina">Medicina</Nav.Link>
       </Nav>
       <CartWidget />
     </Container>

@@ -36,7 +36,7 @@ console.log(items)
 
     return (
         <Container className="mt-3 " >
-        <h1>Libros</h1>
+        <h1>Libreria Bertrand</h1>
         <Container className="mt-4 d-flex contPrincipal">
         
         {items.map((i) => (
@@ -44,9 +44,9 @@ console.log(items)
                   <Card.Img variant="top" src={i.img} />
                   <Card.Body>
                     <Card.Title>{i.title}</Card.Title>
-                    <Card.Text>
+                    {/* <Card.Text>
                       {i.detail}
-                    </Card.Text>
+                    </Card.Text> */}
                   </Card.Body>
                   <ListGroup className="list-group-flush">
                     <ListGroup.Item>Editor: {i.editor}</ListGroup.Item>

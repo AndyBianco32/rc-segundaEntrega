@@ -34,13 +34,19 @@ useEffect (() => {
     return (
         <Container className="mt-5 detailContainer" >
         <div className="detailContainer1">
+
+            <div className="detailContainerInside">
             <h1>{item.title}</h1>
             <img src={item.img} style={{ width: 200 }}/>
+
+            </div>
         </div>
 
         <div className="detailContainer2">
-            <h4>{item.category}</h4>
-            <p>{item.detail}</p>
+            <h4>Categoria: {item.category}</h4>
+            <p> <b>Descripcion:</b> {item.detail}</p>
+            <p>Editorial: {item.editor}</p>
+            <p>Precio: ${item.price}</p>
             <ItemCount stock={item.stock} onAdd={onAdd}/>
           </div>
         

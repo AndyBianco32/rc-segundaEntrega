@@ -9,8 +9,8 @@ export const CartWidget = () => {
 
     return (
     <Link to="/cart">
-    <img src={carrito} height={38}/> 
-    <span>{items.length}</span>
+    <img src={carrito} height={42}/> 
+    <span> {items.length}</span>
     </Link>
 )
 }
