@@ -36,24 +36,22 @@ console.log(items)
 
     return (
         <Container className="mt-3 " >
-        <h1>Libreria Bertrand</h1>
+        <h3>Libreria Bertrand</h3>
         <Container className="mt-4 d-flex contPrincipal">
         
         {items.map((i) => (
                 <Card key={i.id} className="cardPrincipal">
-                  <Card.Img variant="top" src={i.img} />
-                  <Card.Body>
-                    <Card.Title>{i.title}</Card.Title>
-                    {/* <Card.Text>
-                      {i.detail}
-                    </Card.Text> */}
+                  <Card.Img variant="top" src={i.img} height={210} />
+                  <Card.Body className="cardBody">
+                    <Card.Title className="cardTitle">{i.title}</Card.Title>
+                
                   </Card.Body>
                   <ListGroup className="list-group-flush">
                     <ListGroup.Item>Editor: {i.editor}</ListGroup.Item>
                     <ListGroup.Item>Precio: $ {i.price}</ListGroup.Item>
                   </ListGroup>
-                  <Card.Body>
-                    <Link to={`/item/${i.id}`}>Ver Detalle</Link>
+                  <Card.Body className="cardBodyLink">
+                    <Link to={`/item/${i.id}`} height={50}>Ver Detalle</Link>
                   </Card.Body>
                 </Card>
         

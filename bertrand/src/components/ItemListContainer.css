@@ -5,23 +5,42 @@ body{
     background-repeat: no-repeat;
     height: auto;
 }
-
+h3{
+    margin-bottom: 0px;
+}
 .contPrincipal {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: space-between;
+    margin-top: 0px !important;
    }
 
 .cardPrincipal{
     width: 232px;
+    height: 470px;
     margin: 20px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: space-around;
+    font-size: small;
+    padding: 35px 40px;
+    padding-bottom: 2px;
+  
 }
-
+.cardBody{
+    padding: 6px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.cardBodyLink{
+    text-align: center;
+}
+.cardTitle{
+    font-size: 18px;
+}
 .card:hover{
     transition: 1s;
     box-shadow: 25px 15px 25px rgba(0, 0, 0, 0.4);
