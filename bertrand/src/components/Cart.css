@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     background-color: transparent;
     border: 1px solid transparent;
 }
@@ -35,6 +36,11 @@
      
 }
 
+.cartCarrito:hover{
+    transition: 1s;
+    box-shadow: 25px 15px 25px rgba(0, 0, 0, 0.4);
+}
+
 .reset{
     margin-left: 67px;
     margin-top: 20px;
@@ -43,8 +49,9 @@
 .totalImporte{
     margin: auto;
     margin-top: 20px;
-    width: 90%;
+    width: 70%;
     h2{
+        border-radius: 15px;
         background-color: white;
         padding: 10px;
     }
@@ -52,7 +59,9 @@
 }
 
 .formulario{
-    width: 90%;
+    width: 70%;
+    padding: 5px 50px;
+    border-radius: 15px;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 50px;
@@ -63,7 +72,7 @@
         padding-top: 10px;
     }
     button{
-        margin: 10px;
+        margin: 20px;
         
     }
 }

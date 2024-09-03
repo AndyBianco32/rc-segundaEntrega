@@ -1,46 +1,22 @@
 import { useContext, useState } from "react";
-import { getFirestore, collection, addDoc} from "firebase/firestore";
-
 import './Cart.css';
 import { ItemContext } from "../contexts/ItemsContexts";
+import {useForm, useFormState} from "react-hook-form";
+import swal from "sweetalert"
 
-const initialValues = {
-    telefono: "",
-    email: "",
-    nombre: "",
-    mensaje: "",
-}
 
 export const Cart = () => {
-const [buyer, setBuyer] = useState(initialValues);
-const {items, removeItem, reset} = useContext(ItemContext);
 
-const total = items.reduce((acc, act) => acc + act.price * act.quantity , 0);
+    const {items, removeItem, reset} = useContext(ItemContext);
+    const {register,formState:{errors}, handleSubmit} = useForm();
+    
+    const total = items.reduce((acc, act) => acc + act.price * act.quantity , 0);
+    
+    function insertar(){
+        swal ("Su compra ha sido ejecutada con exito")
+        reset();
+    }
 
-const handleChange = (ev) => {
-    setBuyer ((prev) => {
-        return{...prev, [ev.target.name] : ev.target.value};
-    });
-};
-
-const handleOrder = () =>{
-    const order ={
-        buyer,
-        items,
-        total,
-    };
-
-    const db = getFirestore();
-    const orderCollection = collection(db, "orders");
-
-    addDoc(orderCollection, order).then(({ id }) => {
-        if (id) {
-            alert ("Su orden: " + " ha sido completada");
-            reset()
-            setBuyer(initialValues)
-        }
-    })
-}
 
  if (!items.length) return "No hay productos en el carrito";
 
@@ -55,7 +31,6 @@ const handleOrder = () =>{
         <img src={i.img} width={150}></img>
         <p>Cantidad: {i.quantity}</p>
         <p>Precio: $ {i.price}</p>
-        {/* <span onClick={() => removeItem(i.id)}>Eliminar</span> */}
         </div> 
 
         ))
@@ -64,26 +39,70 @@ const handleOrder = () =>{
     
     <div className="totalImporte"><h2>Total de la Compra: $ {total}</h2> </div>
 
+
+    
     <hr/>
     {!!items.length &&
-    <form className="formulario">
+    <form className="formulario" onSubmit={handleSubmit(insertar)}>
         <div>
-            <label>Nombre</label>
-            <input value={buyer.nombre} onChange={handleChange} name="nombre"/>
+            <label>Nombre :</label>
+            <input placeholder="Ingrese su nombre" type="text" size="30"{...register("ingresoNombre",{required:true,minLength:2,maxLength:20})}/>
+            {
+                errors.ingresoNombre?.type==="required" && (
+                    <p>Ingrese su nombre</p>
+                )
+            }
+            {
+                errors.ingresoNombre?.type==="minLength" && (
+                    <p>Ingrese como minimo 2 caracteres</p>
+                )
+            }
+            {
+                errors.ingresoNombre?.type==="maxLength" && (
+                    <p>Ingrese como maximo 20 caracteres</p>
+                )
+            }
         </div>
         <div>
-            <label>Email</label>
-            <input value={buyer.email} onChange={handleChange} name="email"/>
+            <label>Email :</label>
+            <input type="text" placeholder="Ingrese su email" size="30" {
+                ...register("correo",{required:true,pattern:/^[^\s@]+@[^\s@]+\.[^\s@]+$/i})
+            }/>
+            {
+                errors.correo?.type==="required" && (
+                    <p>Este campo es requerido</p>
+                )    
+            }
+            {
+                errors.correo?.type==="pattern" && (
+                <p>Correo no valido</p>
+            )    
+            }
         </div>
         <div>
-            <label>Telefono</label>
-            <input value={buyer.telefono} onChange={handleChange} name="telefono"/>
+            <label>Telefono :</label>
+            <input type="number" placeholder="Ingrese su telefono" size="30" {...register("telefono", {required:true, valueAsNumber:true})}/>
+            {
+                errors.telefono?.type==="required" && (
+                    <p>Ingrese por favor su telefono</p>
+                )
+            }
+            {
+                errors.telefono?.type==="valueAsNumber" && (
+                    <p>Ingrese un numero valido</p>
+                )
+            }
         </div>
         <div>
-            <label>Mensaje</label>
-            <input value={buyer.mensaje} onChange={handleChange} name="mensaje"/>
+            <label>Mensaje :</label>
+            <input placeholder="Detalle su solicitud si lo desea" type="text" size="90"{...register("ingresoSolicitud",{maxLength:60})}/>
+            {
+                errors.ingresoSolicitud?.type==="maxLength" && (
+                    <p>Ingrese como maximo 60 caracteres</p>
+                )
+            }
         </div>
-        <button type="button" onClick={handleOrder}>Comprar</button>
+        <button type="submit" >Comprar</button>
     </form>
     }
     </>
